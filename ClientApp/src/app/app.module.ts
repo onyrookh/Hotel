@@ -6,29 +6,39 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { AvailableHotelLazyDemo } from './fetch-data/fetch-data.component';
+
+
+import { ServiceHelper } from './service/helper';
+import { HotelService } from './service/hotelservice';
+import { FilterService } from 'primeng/api';
+
+
+import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { RatingModule } from 'primeng/Rating';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    AvailableHotelLazyDemo
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    MultiSelectModule,
+    RatingModule,
+    TableModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: AvailableHotelLazyDemo, pathMatch: 'full' },
+
     ])
   ],
-  providers: [],
+  providers: [ServiceHelper, HotelService, TableModule, FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

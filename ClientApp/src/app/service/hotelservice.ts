@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ServiceHelper } from './helper';
 import { IHotel } from '../vms/hotelvm';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class HotelService {
   private _GetReadingLevelsByVideoCategoryIDUrl: string;
 

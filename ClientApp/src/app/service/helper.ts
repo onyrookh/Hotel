@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ServiceHelper {
 
     constructor(private http: HttpClient) {

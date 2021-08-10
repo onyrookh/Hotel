@@ -1,23 +1,44 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HotelService } from '../service/hotelservice';
+import { LazyLoadEvent } from 'primeng/api';
+import { IHotel } from '../vms/hotelvm';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html'
 })
-export class FetchDataComponent {
-  public forecasts: WeatherForecast[];
+export class AvailableHotelLazyDemo implements OnInit {
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  hotels: IHotel[];
+
+  totalRecords: number;
+
+  cols: any[];
+
+  loading: boolean;
+
+
+  constructor(private hotelservice: HotelService) { }
+
+  ngOnInit() {
+    this.loading = true;
+    debugger;
+    this.hotelservice.getAvailableHotel(JSON.stringify(event)).then(data =>
+      this.hotels = [{
+        "name": "Galaxy Earrings",
+        "city": "Product Description",
+        amenities:null,
+        AvailableFrom:new Date(),
+        AvailableTo:new Date(),
+        fare:0,
+        rate:3,
+        totalRecords:0
+      }]
+
+
+    );
+
   }
-}
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
 }
