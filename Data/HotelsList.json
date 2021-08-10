@@ -1,0 +1,76 @@
+{
+  "Hotels": [
+    {
+      "Name": "Kempinski Hotel Aqaba Red Sea",
+      "City": "Aqaba",
+      "Fare": 20,
+      "Rate": 3,
+      "Amenities": [ "Electric safe", "Laundry bags", "Full-length mirror with lighting", "Flat-screen TV with international programming", "Stocked mini bar", "Selection of daily newspapers", "Wifi. Specialty night lighting" ]
+    },
+    {
+      "Name": "Sahara Rum Glamping",
+      "City": "Maan",
+      "Fare": 5,
+      "Rate": 1,
+      "Amenities": [ "Electric safe", "Laundry bags", "Full-length mirror with lighting", "Flat-screen TV with international programming", "Stocked mini bar", "Selection of daily newspapers" ]
+    },
+    {
+      "Name": "Crowne Plaza Festival City, an IHG Hotel",
+      "City": "Dubai",
+      "Fare": 150,
+      "Rate": 5,
+      "Amenities": [ "Electric safe", "Laundry bags", "Full-length mirror with lighting", "Flat-screen TV with international programming", "Stocked mini bar" ]
+    },
+    {
+      "Name": "Emirates Palace",
+      "City": "Abu Dhabi",
+      "Fare": 90,
+      "Rate": 4,
+      "Amenities": [ "Electric safe", "Laundry bags", "Full-length mirror with lighting", "Flat-screen TV with international programming", "Stocked mini bar", "Selection of daily newspapers", "Wifi. Specialty night lighting" ]
+    },
+    {
+      "Name": "Premier Inn Abu Dhabi Int Airport",
+      "City": "Abu Dhabi",
+      "Fare": 70,
+      "Rate": 3,
+      "Amenities": [ "Full-length mirror with lighting", "Flat-screen TV with international programming", "Stocked mini bar", "Selection of daily newspapers", "Wifi. Specialty night lighting" ]
+    },
+    {
+      "Name": "Hotel Central Times Square",
+      "City": "New York",
+      "Fare": 200,
+      "Rate": 5,
+      "Amenities": [ "Electric safe", "Laundry bags", "Full-length mirror with lighting", "Flat-screen TV with international programming", "Stocked mini bar", "Selection of daily newspapers", "Wifi. Specialty night lighting" ]
+    },
+    {
+      "Name": "Millennium Premier New York Times Square",
+      "City": "New York",
+      "Fare": 150,
+      "Rate": 4,
+      "Amenities": [ "Electric safe", "Flat-screen TV with international programming", "Stocked mini bar", "Selection of daily newspapers", "Wifi. Specialty night lighting" ]
+    },
+    {
+      "Name": "Palmer House a Hilton Hotel",
+      "City": "Chicago",
+      "Fare": 50,
+      "Rate": 2,
+      "Amenities": [ "Electric safe", "Laundry bags" ]
+    },
+    {
+      "Name": "Gale Chicago",
+      "City": "Chicago",
+      "Fare": 10,
+      "Rate": 1,
+      "Amenities": [ "Electric safe" ]
+    },
+    {
+      "Name": "City Park Hotel",
+      "City": "Chisinau",
+      "Fare": 20,
+      "Rate": 1,
+      "Amenities": [ "Laundry bags" ]
+    }
+
+
+  ]
+}

@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { AvailableHotelLazyDemo } from './fetch-data/fetch-data.component';
+import { AvailableHotelLazyDemo } from './hotels/hotels-data.component';
 
 
 import { ServiceHelper } from './service/helper';

@@ -25,6 +25,7 @@ namespace Hotel
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,11 +48,15 @@ namespace Hotel
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapControllerRoute(
+                routes.MapRoute(
                     name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "ActionApi",
+                    template: "api/{controller}/{action}");
             });
 
             app.UseSpa(spa =>

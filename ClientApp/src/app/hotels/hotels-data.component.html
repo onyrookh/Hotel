@@ -1,15 +1,10 @@
 <p-table [value]="hotels">
-  <ng-template pTemplate="caption">
-    <div class="p-d-flex p-ai-center p-jc-between">
-      hotels
-      <!--<p-button icon="pi pi-refresh"></p-button>-->
-    </div>
-  </ng-template>
   <ng-template pTemplate="header">
     <tr>
       <th>Name</th>
       <th>Price</th>
-      <th>Category</th>
+      <th>Rate</th>
+      <th>Amenities</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-hotel>
@@ -17,11 +12,7 @@
       <td>{{hotel.name}}</td>
       <td>{{hotel.fare | currency:'USD'}}</td>
       <td><p-rating [ngModel]="hotel.rate" [readonly]="true" [cancel]="false"></p-rating></td>
+      <td>{{hotel.amenities}}</td>
     </tr>
-  </ng-template>
-  <ng-template pTemplate="summary">
-    <div class="p-d-flex p-ai-center p-jc-between">
-      In total there are {{hotels ? hotels.length : 0 }} hotels.
-    </div>
   </ng-template>
 </p-table>
