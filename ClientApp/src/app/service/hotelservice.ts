@@ -13,8 +13,9 @@ export class HotelService {
   }
 
 
-  getAvailableHotel(filter:string) {
-    return this.serviceHelper.PostRequest<IHotelList>({ filter: filter }, this._GetAvailableHotelsUrl);
+  getAvailableHotel(city: string, numAdults: number, dateRangeValue: Date) {
+    debugger;
+    return this.serviceHelper.PostRequest<IHotelList>({ City: city, NumAdults: numAdults, DateRangeValue: dateRangeValue }, this._GetAvailableHotelsUrl);
   }
 
 

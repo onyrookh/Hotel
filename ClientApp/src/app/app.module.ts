@@ -17,6 +17,10 @@ import { FilterService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { RatingModule } from 'primeng/Rating';
+import { CalendarModule } from 'primeng/calendar';
+import { ConfirmationService } from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -26,19 +30,22 @@ import { RatingModule } from 'primeng/Rating';
     NavMenuComponent,
     AvailableHotelLazyDemo
   ],
+
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     MultiSelectModule,
+    BrowserAnimationsModule,
     RatingModule,
     TableModule,
+    CalendarModule,
     RouterModule.forRoot([
       { path: '', component: AvailableHotelLazyDemo, pathMatch: 'full' },
 
     ])
   ],
-  providers: [ServiceHelper, HotelService, TableModule, FilterService],
+  providers: [ServiceHelper, HotelService, TableModule, FilterService, ConfirmationService, PrimeNGConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

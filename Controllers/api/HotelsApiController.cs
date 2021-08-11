@@ -1,6 +1,7 @@
 ﻿using Hotel.VMs;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,12 +20,23 @@ namespace Hotel.Controllers.api
 
 
         [HttpPost]
-        public HotelsVM GetHotels([FromBody] string value)
+        public HotelsVM GetHotels([FromBody] JObject criteria)
         {
+            string city = null;
+            //if (Filter !=null && Filter.Count >0)
+            //{
+            //     city = Filter["City"].ToObject<string>();
+
+            //}
+
             string oHotelListJson = System.IO.File.ReadAllText("Data/HotelsList.json");
 
             HotelsVM oHotelList = JsonConvert.DeserializeObject<HotelsVM>(oHotelListJson);
 
+            if (oHotelList != null && oHotelList.Hotels.Any())
+            {
+                oHotelList.Hotels = oHotelList.Hotels.OrderByDescending(s => s.Rate).ToList();
+            }
             return oHotelList;
         }
 

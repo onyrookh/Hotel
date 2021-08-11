@@ -1,18 +1,46 @@
-<p-table [value]="hotels">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Rate</th>
-      <th>Amenities</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-hotel>
-    <tr>
-      <td>{{hotel.name}}</td>
-      <td>{{hotel.fare | currency:'USD'}}</td>
-      <td><p-rating [ngModel]="hotel.rate" [readonly]="true" [cancel]="false"></p-rating></td>
-      <td>{{hotel.amenities}}</td>
-    </tr>
-  </ng-template>
-</p-table>
+  <div class="row">
+  <div class="col-md-3">
+    <label class="font-weight-bold text-white">Cite:</label>
+    <br />
+    <input type="text" [(ngModel)]="city" class="ng-tns-c1-0 p-inputtext p-component ng-star-inserted" />
+  </div>
+  <div class="col-md-3">
+    <label class="font-weight-bold text-white">Number of Adults:</label>
+    <br />
+    <input type="text" [(ngModel)]="numAdults" class="ng-tns-c1-0 p-inputtext p-component ng-star-inserted" />
+  </div>
+  <div class="col-md-3">
+    <label class="font-weight-bold text-white">Date Range:</label>
+    <br />
+    <p-calendar [(ngModel)]="fromValue" selectionMode="range"></p-calendar>
+  </div>
+  <div class="col-md-3">
+    <button class="btn btn-info" (click)="onSearch()" style=" margin-top: 34px;">Search</button>
+  </div>
+
+</div>
+
+  <div class="row">
+    <p-table [value]="hotels" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" 
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[5,10,50]" class="mb-3 mt-4">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Fare</th>
+          <th>Rate</th>
+          <th>Amenities</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-hotel>
+        <tr>
+          <td>{{hotel.name}}</td>
+          <td>{{hotel.city}}</td>
+          <td>{{hotel.fare | currency:'USD'}}</td>
+          <td><p-rating [ngModel]="hotel.rate" [readonly]="true" [cancel]="false"></p-rating></td>
+          <td>{{hotel.amenities}}</td>
+        </tr>
+      </ng-template>
+
+    </p-table>
+  </div>
