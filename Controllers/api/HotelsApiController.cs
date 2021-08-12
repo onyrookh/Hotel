@@ -59,7 +59,7 @@ namespace Hotel.Controllers.api
                 oHotelList.Hotels = oHotelList.Hotels.Where(s=>
                 (!string.IsNullOrEmpty(city)? s.City.Trim().ToLower().Contains(city.ToLower().Trim()):true) &&
                 (numAdults >0 ? s.NumberOfAdults==numAdults : true)&&
-                (dateFrom !=null && dateTo !=null ?s.FromDate <=dateFrom && s.ToDate >=dateTo:true)
+                (dateFrom !=null && dateTo !=null ?s.FromDate >=dateFrom && s.ToDate <=dateTo:true)
                 ).OrderByDescending(s => s.Rate).ToList();
             }
             return oHotelList;
