@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ServiceHelper } from './helper';
 import {  IHotelList } from '../vms/hotelvm';
+import { FilterVM } from '../vms/filtervm';
 
 @Injectable({ providedIn: 'root' })
 export class HotelService {
@@ -13,9 +14,9 @@ export class HotelService {
   }
 
 
-  getAvailableHotel(city: string, numAdults: number, dateRangeValue: Date) {
+  getAvailableHotel(filter: FilterVM) {
     debugger;
-    return this.serviceHelper.PostRequest<IHotelList>({ City: city, NumAdults: numAdults, DateRangeValue: dateRangeValue }, this._GetAvailableHotelsUrl);
+    return this.serviceHelper.GetRequest<IHotelList>(this._GetAvailableHotelsUrl + "?city="+filter.city + "&numAdults=" + filter.numAdults + "&dateRangeValue=" + filter.dateRangeValue);
   }
 
 

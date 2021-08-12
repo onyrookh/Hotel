@@ -12,6 +12,9 @@ namespace Hotel.VMs
         public string[] Amenities { get; set; }
         public int Fare { get; set; }
         public int Rate { get; set; }
+        public Nullable<DateTime> FromDate { get; set; }
+        public Nullable<DateTime> ToDate { get; set; }
+        public int NumberOfAdults { get; set; }
     }
 
     public class HotelsVM

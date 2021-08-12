@@ -12,7 +12,7 @@
   <div class="col-md-3">
     <label class="font-weight-bold text-white">Date Range:</label>
     <br />
-    <p-calendar [(ngModel)]="fromValue" selectionMode="range"></p-calendar>
+    <p-calendar [(ngModel)]="fromValue" selectionMode="range" dateFormat="dd.mm.yy"></p-calendar>
   </div>
   <div class="col-md-3">
     <button class="btn btn-info" (click)="onSearch()" style=" margin-top: 34px;">Search</button>
@@ -27,6 +27,7 @@
         <tr>
           <th>Name</th>
           <th>City</th>
+          <th>Number Of Adults</th>
           <th>Fare</th>
           <th>Rate</th>
           <th>Amenities</th>
@@ -36,6 +37,7 @@
         <tr>
           <td>{{hotel.name}}</td>
           <td>{{hotel.city}}</td>
+          <td>{{hotel.numberOfAdults}}</td>
           <td>{{hotel.fare | currency:'USD'}}</td>
           <td><p-rating [ngModel]="hotel.rate" [readonly]="true" [cancel]="false"></p-rating></td>
           <td>{{hotel.amenities}}</td>

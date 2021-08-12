@@ -7,9 +7,9 @@ export class ServiceHelper {
     constructor(private http: HttpClient) {
     }
 
-    PostRequest<T>(body: any, url: string): Promise<T> {
+    GetRequest<T>(url: string): Promise<T> {
         let options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-        return this.http.post(url, body, options)
+        return this.http.get(url, options)
             .toPromise()
             .then(data => {
                 return data as T;             

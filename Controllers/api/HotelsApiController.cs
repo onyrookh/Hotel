@@ -19,15 +19,36 @@ namespace Hotel.Controllers.api
     {
 
 
-        [HttpPost]
-        public HotelsVM GetHotels([FromBody] JObject criteria)
+        [HttpGet]
+        public HotelsVM GetHotels(string city,string dateRangeValue,int numAdults)
         {
-            string city = null;
-            //if (Filter !=null && Filter.Count >0)
-            //{
-            //     city = Filter["City"].ToObject<string>();
 
-            //}
+            Nullable<DateTime> dateFrom = null;
+            Nullable<DateTime> dateTo = null;
+
+            if (!string.IsNullOrEmpty(dateRangeValue))
+            {
+                var dateFromTo = dateRangeValue.Split('_');
+                if (!string.IsNullOrEmpty(dateFromTo[0]))
+                {
+                    dateFrom = Convert.ToDateTime(dateFromTo[0]);
+
+                }
+                if (dateFromTo.Length ==2 &&  !string.IsNullOrEmpty(dateFromTo[1]))
+                {
+                    dateTo = Convert.ToDateTime(dateFromTo[1]);
+
+                }
+                else
+                {
+                    dateTo = Convert.ToDateTime(dateFromTo[0]);
+
+                }
+
+
+            }
+
+
 
             string oHotelListJson = System.IO.File.ReadAllText("Data/HotelsList.json");
 
@@ -35,7 +56,11 @@ namespace Hotel.Controllers.api
 
             if (oHotelList != null && oHotelList.Hotels.Any())
             {
-                oHotelList.Hotels = oHotelList.Hotels.OrderByDescending(s => s.Rate).ToList();
+                oHotelList.Hotels = oHotelList.Hotels.Where(s=>
+                (!string.IsNullOrEmpty(city)? s.City.Trim().ToLower().Contains(city.ToLower().Trim()):true) &&
+                (numAdults >0 ? s.NumberOfAdults==numAdults : true)&&
+                (dateFrom !=null && dateTo !=null ?s.FromDate <=dateFrom && s.ToDate >=dateTo:true)
+                ).OrderByDescending(s => s.Rate).ToList();
             }
             return oHotelList;
         }
